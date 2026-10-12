@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kubevyuha"
+version = "0.1.0"
+description = "Provenance-Guided Split Recovery for Kubernetes"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "KubeVyuha Team" }
+]
+dependencies = [
+    "streamlit>=1.40.0",
+    "pydantic>=2.8.0",
+    "pyyaml>=6.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.5.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v"
